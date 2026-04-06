@@ -127,14 +127,6 @@ Sistem *seeder* database telah secara otomatis menambahkan akun contoh berikut u
 * **Username:** `admin@afilia.shop`
 * **Password:** `password`
 
-**Staff / Pegawai:**
-* **Username:** `staff@afilia.shop`
-* **Password:** `password`
-
-**Pelanggan Percobaan:**
-* **Username:** `customer@afilia.shop`
-* **Password:** `password`
-
 *(Anda dan pembeli juga dapat mendaftar membuat akun baru secara mandiri di halaman Register web utama).*
 
 ---
