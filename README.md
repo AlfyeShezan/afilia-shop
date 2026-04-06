@@ -9,7 +9,7 @@
 ## 📸 Tampilan Aplikasi
 | Halaman Utama | Dashboard Admin | Dashboard Vendor |
 | :---: | :---: | :---: |
-| [![alt text](image.png)] | [![alt text](image-1.png)] | *[Screenshot Dashboard Vendor]* |
+| [![alt text](image.png)] | [![alt text](image-1.png)] |
 
 ---
 
