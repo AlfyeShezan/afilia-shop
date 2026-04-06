@@ -9,7 +9,7 @@
 ## 📸 Tampilan Aplikasi
 | Halaman Utama | Dashboard Admin |
 | :---: | :---: |
-| [![alt text](image.png)] | [![alt text](image-1.png)] |
+| ![alt text](image.png) | ![alt text](image-1.png) |
 
 ---
 
