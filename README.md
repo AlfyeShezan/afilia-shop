@@ -1,135 +1,159 @@
 <div align="center">
   # 🛒 Afilia Shop - Enterprise E-Commerce & Marketplace
 
-  Sebuah platform E-Commerce skala Enterprise (Marketplace) modern yang dibangun dengan **Laravel 12**, **Livewire v3**, dan **Tailwind CSS**. Afilia Shop menyediakan fitur multi-role (Super Admin, Admin, Staff, Vendor, dan Customer) yang memungkinkan multi-seller berjualan di satu platform layaknya Tokopedia/Shopee.
+  **Afilia Shop** adalah platform E-Commerce skala Enterprise (Marketplace) modern yang dibangun menggunakan **Laravel 12**. Sistem ini dirancang untuk mempermudah proses jual beli secara online, memfasilitasi banyak penjual (multi-vendor) di dalam satu platform, serta menyediakan sistem manajemen pesanan, produk, stok, dan pembayaran secara komprehensif. Website ini juga memanfaatkan teknologi **Livewire v3** untuk memberikan pengalaman layaknya SPA (Single Page Application) yang cepat dan responsif.
 </div>
 
 <br />
 
-## 🌟 Fitur Utama (Core Features)
-
-* **Multi-Role & Permissions**: Menggunakan `spatie/laravel-permission` untuk membatasi hak akses (Super Admin, Admin, Staff, Vendor, Customer).
-* **Multi-Seller (Vendor Dashboard)**: Vendor dapat mendaftar, mengelola produk sendiri, melihat pesanan, dan melakukan penarikan dana (Withdrawal).
-* **Admin Dashboard**: Manajemen penuh atas kategori, produk, pesanan, pengguna, vendor, voucher, dan pengaturan sistem.
-* **Manajemen Produk & Kategori**: Mendukung variasi produk, stok, harga, dan multi-level kategori.
-* **Payment Gateway**: Terintegrasi dengan **Midtrans** untuk pembayaran online yang aman dan real-time.
-* **Cart & Checkout System**: Sistem keranjang belanja dengan dukungan multi-alamat dan penggunaan voucher diskon.
-* **Order History & Invoicing**: Melacak riwayat pesanan pelanggan dan mengenerate invoice format PDF (via `laravel-dompdf`).
-* **Livewire SPA-like Experience**: Antarmuka responsif tanpa reload halaman dengan Livewire v3 & Volt.
+## 📸 Tampilan Aplikasi
+| Halaman Utama | Dashboard Admin | Dashboard Vendor |
+| :---: | :---: | :---: |
+| [![alt text](image.png)] | [![alt text](image-1.png)] | *[Screenshot Dashboard Vendor]* |
 
 ---
 
-## 🛠️ Teknologi yang Digunakan (Tech Stack)
-
-* **Backend**: Laravel Framework (^12.0), PHP (^8.2)
-* **Frontend**: Livewire (^3.6.4), Tailwind CSS, Alpine.js
-* **Database**: MySQL / MariaDB
-* **Authentication**: Laravel Breeze
-* **Role & Permission**: Spatie Laravel Permission
-* **Payment Gateway**: Midtrans PHP
-* **PDF Generator**: Barryvdh Laravel DomPDF
+## 🚀 Fitur Unggulan
+* **Sistem Multi-Role:** Pembagian hak akses yang ketat (Super Admin, Admin, Staff, Vendor, dan Customer) menggunakan *Spatie Permission*.
+* **Marketplace (Multi-Vendor):** Vendor pihak ketiga dapat mendaftar, membuka toko, mengelola prdouk sendiri, menangani pesanan, dan melakukan *withdrawal* (penarikan dana).
+* **Payment Gateway Integration:** Terhubung dengan **Midtrans** untuk memproses berbagai metode pembayaran secara otomatis dan *real-time*.
+* **Manajemen Produk Kompleks:** Mendukung kategori bertingkat, variasi harga (SKU), manajemen stok, harga diskon, dan manajemen atribut.
+* **Keranjang Belanja & Wishlist:** Sistem Cart yang efisien dilengkapi penyimpanan produk favorit (Wishlist).
+* **Multi-Alamat & Ekspedisi:** Pengguna dapat menyimpan banyak alamat untuk keperluan *checkout*.
+* **Sistem Voucher & Diskon:** Voucher potongan harga yang dapat diatur berdasarkan nilai tetap atau persentase, dengan kuota klaim.
+* **Invoice Digital:** Fitur generate invoice berformat PDF untuk setiap pesanan yang telah dikonfirmasi.
 
 ---
 
-## 📂 Struktur Direktori Utama
+## 🛠️ Teknologi yang Digunakan
+Project ini dibangun dengan ekosistem teknologi modern sebagai berikut:
+
+* **Backend:** Laravel Framework (^12.0) dengan PHP (^8.2)
+* **Database:** MySQL / MariaDB
+* **Frontend:** Livewire (^3.6), Alpine.js
+* **Styling:** Tailwind CSS
+* **Tools:** XAMPP, npm/Node.js, Composer
+* **Library Ekstra:** 
+  * Midtrans (Payment Gateway)
+  * Laravel-DomPDF (Generate PDF)
+  * Spatie Laravel Permission (Roles & Permissions)
+  * Laravel Breeze (Authentication)
+
+---
+
+## 📂 Struktur Folder
+Berikut adalah struktur direktori utama pada project ini (berdasarkan arsitektur Laravel):
 
 ```text
-toko-online/
-├── app/
-│   ├── Http/Controllers/      # Controller untuk API & Payment Callbacks
-│   ├── Livewire/              # Komponen Livewire (Cart, Checkout, Dashboard dll)
-│   ├── Models/                # Eloquent Models (User, Product, Order, dll)
-│   └── Providers/             # Service Providers
-├── database/
-│   ├── migrations/            # Skema database
-│   └── seeders/               # Data dummy & inisialisasi Role (DatabaseSeeder)
-├── resources/
-│   ├── views/
-│   │   ├── livewire/          # View/Blade untuk Livewire Components
-│   │   └── components/        # Blade UI components
-│   └── css & js/              # Tailwind directives & app setup
-├── routes/
-│   └── web.php                # Definisi routing, middleware, dan grup navigasi
-└── public/                    # Aset statis & entry point
+/afilia-shop
+├── app/               # Logic aplikasi (Models, Traits, Helpers)
+│   ├── Http/          # Controller (Midtrans, Invoice)
+│   └── Livewire/      # Komponen Livewire (Cart, Checkout, Manager, Dashboard)
+├── database/          # File Migrasi & Sistem Seeder (Data Dummy)
+├── public/            # File statis (CSS, JS build, upload gambar)
+├── resources/         
+│   ├── css/ & js/     # Konfigurasi Tailwind & JavaScript
+│   └── views/         # File Blade (.blade.php) untk UI aplikasi
+├── routes/            # Definisi rute URL (web.php, auth.php)
+├── .env.example       # Contoh environment variable
+├── composer.json      # Dependencies PHP
+└── package.json       # Dependencies Node/NPM
 ```
 
 ---
 
-## 🚀 Cara Instalasi & Menjalankan (Installation & Setup)
+## � Cara Instalasi & Menjalankan
+Ikuti langkah-langkah berikut untuk menjalankan project di lokal (misalnya menggunakan XAMPP):
 
-Ikuti langkah-langkah di bawah ini untuk menjalankan project ini di environment lokal Anda (misal menggunakan XAMPP/Laragon).
+### 1. Persiapan Environment
+Pastikan Anda telah menginstal **XAMPP**, **Composer**, dan **Node.js**. Pastikan versi **PHP 8.2** atau lebih tinggi.
 
-1. **Clone Repository (atau Download ZIP)**
+### 2. Clone Repository
+Buka terminal dan clone project ini ke dalam folder `htdocs` Anda (XAMPP):
+
+```bash
+cd C:\xampp4\htdocs
+git clone https://github.com/AlfyeShezan/afilia-shop.git
+cd afilia-shop
+```
+
+### 3. Install Dependencies
+Jalankan perintah berikut untuk menginstal package PHP dan Node.js:
+```bash
+composer install
+npm install
+npm run build
+```
+
+### 4. Konfigurasi Database & Environment
+1. Buat file `.env` dengan meng-kopi `.env.example`:
    ```bash
-   git clone https://github.com/username/afilia-shop.git
-   cd afilia-shop
+   cp .env.example .env
    ```
-
-2. **Install Composer Dependencies**
-   ```bash
-   composer install
-   ```
-
-3. **Install NPM Dependencies**
-   ```bash
-   npm install
-   npm run build
-   ```
-
-4. **Konfigurasi Environment (.env)**
-   * Copy file `.env.example` ke `.env`
-   * Buka konfigurasi `.env`, dan sesuaikan informasi Database Anda:
+2. Buat database baru di `phpMyAdmin` (misal: `toko_online`).
+3. Sesuaikan konfigurasi di dalam file `.env`:
    ```env
    DB_CONNECTION=mysql
    DB_HOST=127.0.0.1
    DB_PORT=3306
-   DB_DATABASE=nama_database_anda
+   DB_DATABASE=toko_online
    DB_USERNAME=root
    DB_PASSWORD=
-   
-   MIDTRANS_SERVER_KEY=your_midtrans_server_key
-   MIDTRANS_CLIENT_KEY=your_midtrans_client_key
+
+   MIDTRANS_SERVER_KEY=kode_api_midtrans_server_anda
+   MIDTRANS_CLIENT_KEY=kode_api_midtrans_client_anda
    ```
 
-5. **Generate App Key & Migrasi Database**
-   Jalankan perintah ini untuk melakukan migrasi beserta data seeder (Roles, Akun Dummy, dsb).
-   ```bash
-   php artisan key:generate
-   php artisan migrate:fresh --seed
-   ```
+### 5. Generate Key & Migrasi Data
+Jalankan perintah ini untuk membangun tabel database, *roles*, dan akun default (*dummy* data):
+```bash
+php artisan key:generate
+php artisan migrate:fresh --seed
+```
 
-6. **Jalankan Aplikasi Lokal**
-   ```bash
-   php artisan serve
-   ```
-   Aplikasi akan dapat diakses di: `http://localhost:8000`
+### 6. Jalankan Server Lokal
+```bash
+php artisan serve
+```
+Buka browser dan akses alamat berikut:
+**`http://localhost:8000`**
 
 ---
 
-## 🔐 Kredensial Default (Testing)
+## � Akun Default (Demo)
+Berkat *seeder* database, Anda dapat login menggunakan kredensial dummy berikut pada halaman `/login`:
 
-Karena database dilakukan *seeding*, Anda dapat login menggunakan akun berikut untuk keperluan testing:
+**Administrator Utama:**
+* **Username:** `admin@afilia.shop`
+* **Password:** `password`
 
-| Role | Email | Password |
-| :--- | :--- | :--- |
-| **Super Admin** | `admin@afilia.shop` | `password` |
+**Staff System:**
+* **Username:** `staff@afilia.shop`
+* **Password:** `password`
 
-Untuk akses login, silakan buka: `http://localhost:8000`
+**Customer (Pelanggan Ujicoba):**
+* **Username:** `customer@afilia.shop`
+* **Password:** `password`
+
+*(Anda juga dapat mendaftar sendiri sebagai pelanggan baru melalui halaman Register).*
 
 ---
 
-## 🖼️ Tampilan Aplikasi (Screenshots)
+## 🤝 Kontribusi
+Kontribusi selalu terbuka! Jika Anda ingin meningkatkan project ini, silakan:
 
-*[![alt text](image.png)]*
-
-*[![alt text](image-1.png)]*
+1. **Fork** repository ini.
+2. Buat **branch fitur baru** (`git checkout -b fitur-baru`).
+3. **Commit** perubahan Anda (`git commit -m 'Menambahkan fitur keren'`).
+4. **Push** ke branch Anda (`git push origin fitur-baru`).
+5. Buat **Pull Request**.
 
 ---
 
-## 👤 Author & Kontributor
+## � Author
+**Alfi Dias Saputra**
 
-* **[Alfi Dias Saputra]** - *Lead Developer* - [https://github.com/AlfyeShezan]
+* **GitHub:** [https://github.com/AlfyeShezan/](https://github.com/AlfyeShezan/)
+* **Email:** alfidias1511@gmail.com
 
-<br/>
-
-> **Note**: Disarankan menggunakan server web lokal seperti XAMPP atau perintah artisan serve. Pastikan versi PHP pada environment Anda adalah 8.2 atau lebih tinggi.
+*Managed with ❤️ by [Alfye]*
